@@ -192,7 +192,7 @@ The grid below explains which controls are needed, and which properties should b
 <li>We can now save and run the application in the simulator. Select <strong>Debug | iPhone 6 iOS 8.1</strong> as the configuration, and press the play button. When the application launches, you should notice that there is currently no functioanlity on any of the buttons.<br>
 <img src="Images/image6.png" alt="Images/image6.png">
 </li>
-<li>Let's add the logic that will  do the translating from alpha-numeric to numeric phone number. Add a new class by right–clicking on your project, and selecting <strong>Add &gt; New Files...</strong> In New File dialog, select <strong> General &gt; Empty Class</strong>, and name it <code>Translate</code>. This step is illustrated below:<br>
+<li>Let's add the logic that will  do the translating from alpha-numeric to numeric phone number. Add a new class by right–clicking on your project, and selecting <strong>Add &gt; New Files...</strong> In New File dialog, select <strong> General &gt; Empty Class</strong>, and name it <code>PhonewordTranslator</code>. This step is illustrated below:<br>
 <img src="Images/image7.png" alt="Images/image7.png">
 <img src="Images/image8.png" alt="Images/image8.png">
 </li>
@@ -258,11 +258,13 @@ namespace Core
 
 <p>The provides the functionality to translate the alpha–numeric number, into a numeric number.</p>
 </li>
-<li><p>Next, we want to implement an event on our Translate button. Remember that we gave the button the name <strong>translateButton</strong>. If we view the .Designer.cs file, notice that the button has been created with the [Outlet] property. An outlet gives the ViewController a way to talk to the View.</p></li>
+<li><p>Next, we want to implement an event on our Translate button. Remember that we gave the button the name <strong>TranslateButton</strong>. If we view the .Designer.cs file, notice that the button has been created with the [Outlet] property. An outlet gives the ViewController a way to talk to the View.</p></li>
 <li>
 <p>Add the following code to the <code>ViewDidLoad</code> method of the <strong>Phoneword_iOSViewController.cs</strong> class:</p>
 
 <pre><code>
+var translatedNumber = "";
+
 TranslateButton.TouchUpInside += (object sender, EventArgs e) =&gt; {
 
         // Convert the phone number with text to a number - from PhoneTranslator.cs
@@ -291,7 +293,6 @@ TranslateButton.TouchUpInside += (object sender, EventArgs e) =&gt; {
 
         // Use URL handler with tel: prefix to invoke Apple's Phone app, 
         var url = new NSUrl ("tel:" + translatedNumber);
-        UIApplication.SharedApplication.OpenUrl(url);
 
         // otherwise show an alert dialog                
         if (!UIApplication.SharedApplication.OpenUrl (url)) {
