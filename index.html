@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Intro to Xamarin : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Intro to Xamarin</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/asb3993/WCC-Meetup">View on GitHub</a>
+
+          <h1 id="project_title">Intro to Xamarin</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/asb3993/WCC-Meetup/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/asb3993/WCC-Meetup/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="objectives" class="anchor" href="#objectives" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objectives</h1>
+
+<p>In this lab we will explore:</p>
+
+<ul>
+<li>Creating a new Xamarin Solution.</li>
+<li>Designing and creating a User Interface for our application.</li>
+<li>Adding a new class.</li>
+<li>Adding functionality to controls.</li>
+<li>Deploying our application to a simulator.</li>
+<li>Adding app icons, and other finishing touches to our application.</li>
+</ul>
+
+<p>The final application will contain a single view, and should look like the following: </p>
+
+<p><img src="Images/image1.png" alt="Images/image1.png"></p>
+
+<h1>
+<a id="lab-walkthrough" class="anchor" href="#lab-walkthrough" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab Walkthrough</h1>
+
+<ol>
+<li>Open Xamarin Studio, and select <strong>New Solution</strong> from the top left corner:<br>
+<img src="Images/image2.png" alt="Images/image2.png">
+</li>
+<li>From the New Solution dialog, select <strong>C# &gt; iOS &gt; Classic API &gt; iPhone &gt; Single View Application</strong> and give it a name:<br>
+<img src="Images/image3.png" alt="Images/image3.png"><br>
+</li>
+<li>Double–Click on <strong>MainStoryboard.Storyboard</strong> in your Solution Pad, on the left. This will open the Designer:<br>
+<img src="Images/image4.png" alt="Images/image4.png">
+</li>
+<li>We now want to create the UI, which should reflect the screenshot below. We will use the <strong>Toolbox</strong> pad to complete this, which, by default, sits to the right of the design surface:<br>
+<img src="Images/image5.png" alt="Images/image5.png">
+The grid below explains which controls are needed, and which properties should be set in the property pad, like so:<br>
+<img src="Images/image9.png" alt="Images/image9.png"> 
+<table width="80%">
+        <tr>
+            <th>Type</th>
+            <th>Property</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>
+                <code>Label</code>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <code>Text</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>Font</code>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>"Enter a Phoneword:"</td>
+                    </tr>
+                    <tr>
+                        <td>System Bold 17</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>Text Field</code>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <code>Name</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>Text</code>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>PhoneNumberText</td>
+                    </tr>
+                    <tr>
+                        <td>"1-855-XAMARIN"</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>Button</code>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <code>Name</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>Title</code>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>TranslateButton</td>
+                    </tr>
+                    <tr>
+                        <td>"Translate"</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>Button</code>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <code>Name</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>Title</code>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>CallButton</td>
+                    </tr>
+                    <tr>
+                        <td>"Call"</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table> </li>
+<li>We can now save and run the application in the simulator. Select <strong>Debug | iPhone 6 iOS 8.1</strong> as the configuration, and press the play button. When the application launches, you should notice that there is currently no functioanlity on any of the buttons.<br>
+<img src="Images/image6.png" alt="Images/image6.png">
+</li>
+<li>Let's add the logic that will  do the translating from alpha-numeric to numeric phone number. Add a new class by right–clicking on your project, and selecting <strong>Add &gt; New Files...</strong> In New File dialog, select <strong> General &gt; Empty Class</strong>, and name it <code>Translate</code>. This step is illustrated below:<br>
+<img src="Images/image7.png" alt="Images/image7.png">
+<img src="Images/image8.png" alt="Images/image8.png">
+</li>
+<li>
+<p>We now need to add the following code to this class:</p>
+
+<pre><code>using System.Text;
+using System;
+
+namespace Core
+{
+    public static class PhonewordTranslator
+    {
+        public static string ToNumber(string raw)
+        {
+            if (string.IsNullOrWhiteSpace(raw))
+                return "";
+            else
+                raw = raw.ToUpperInvariant();
+
+            var newNumber = new StringBuilder();
+            foreach (var c in raw)
+            {
+                if (" -0123456789".Contains(c))
+                    newNumber.Append(c);
+                else {
+                    var result = TranslateToNumber(c);
+                    if (result != null)
+                        newNumber.Append(result);
+                }    
+                // otherwise we've skipped a non-numeric char
+            }
+            return newNumber.ToString();
+        }
+        static bool Contains (this string keyString, char c)
+        {
+            return keyString.IndexOf(c) &gt;= 0;
+        }
+        static int? TranslateToNumber(char c)
+        {
+            if ("ABC".Contains(c))
+                return 2;
+            else if ("DEF".Contains(c))
+                return 3;
+            else if ("GHI".Contains(c))
+                return 4;
+            else if ("JKL".Contains(c))
+                return 5;
+            else if ("MNO".Contains(c))
+                return 6;
+            else if ("PQRS".Contains(c))
+                return 7;
+            else if ("TUV".Contains(c))
+                return 8;
+            else if ("WXYZ".Contains(c))
+                return 9;
+            return null;
+        }
+    }
+}
+
+</code></pre>
+
+<p>The provides the functionality to translate the alpha–numeric number, into a numeric number.</p>
+</li>
+<li><p>Next, we want to implement an event on our Translate button. Remember that we gave the button the name <strong>translateButton</strong>. If we view the .Designer.cs file, notice that the button has been created with the [Outlet] property. An outlet gives the ViewController a way to talk to the View.</p></li>
+<li>
+<p>Add the following code to the <code>ViewDidLoad</code> method of the <strong>Phoneword_iOSViewController.cs</strong> class:</p>
+
+<pre><code>
+TranslateButton.TouchUpInside += (object sender, EventArgs e) =&gt; {
+
+        // Convert the phone number with text to a number - from PhoneTranslator.cs
+        translatedNumber = Core.PhonewordTranslator.ToNumber(PhoneNumberText.Text);
+
+        // Dismiss the keyboard - if Text Field was tapped
+        PhoneNumberText.ResignFirstResponder ();
+
+        //Check if the number has been translated
+    if (translatedNumber == "") {
+        CallButton.SetTitle ("Call ", UIControlState.Normal);
+        CallButton.Enabled = false;
+    } else {
+        CallButton.SetTitle ("Call " + translatedNumber, UIControlState.Normal);
+        CallButton.Enabled = true;
+    }
+};
+</code></pre>
+</li>
+<li>We can now save and run the application in the simulator. The Translate button should now work, but pressing the call button still does nothing. Let's wire this up.</li>
+<li>Stop the simulator and return to your <strong>Phoneword_iOSViewController.cs</strong> file.</li>
+<li>
+<p>In the the <code>ViewDidLoad</code> method, underneath the <code>TranslateButton</code> event, add the following code:</p>
+
+<pre><code>CallButton.TouchUpInside += (object sender, EventArgs e) =&gt; {
+
+        // Use URL handler with tel: prefix to invoke Apple's Phone app, 
+        var url = new NSUrl ("tel:" + translatedNumber);
+        UIApplication.SharedApplication.OpenUrl(url);
+
+        // otherwise show an alert dialog                
+        if (!UIApplication.SharedApplication.OpenUrl (url)) {
+            var av = new UIAlertView ("Not supported",
+                        "Scheme 'tel:' is not supported on this device",
+                        null,
+                        "OK",
+                        null);
+
+            av.Show ();
+        }
+};
+</code></pre>
+</li>
+<li>
+<p>Once again, save and run the application. We should now be able to make our buttons function as expected. Note that when pressing the call button, it will display our Alert view, as shown below:<br>
+<img src="Images/image10.png" alt="Images/image10.png"></p>
+
+<p>This is because the simulator does not have a working phone application. If we were to test this on a real device, the call would go successfully.</p>
+</li>
+<li><p>We have now finished the basic functionality of our app, but it looks very unprofessional. Let's polish our app and make it look slick, by editing the information properties, or <strong>info.plist</strong> file. Double-Click on <strong>info.plist</strong>, which will open a screen similar to the one shown below:<br>
+<img src="Images/image11.png" alt="Images/image11.png"></p></li>
+<li>Edit the application name to just <strong>Phoneword</strong>.</li>
+<li>Further on down this page, we can add app icons, spotlight icons, and splash screens. There is a related folder 'App Resources' with this guide that contains assets we can use for our icons. To change these icons, click on the placeholder and browse to <strong>App Resource</strong>'s location, as illustrated below:<br>
+<img src="Images/image12.png" alt="Images/image12.png">
+</li>
+<li>Deploy the application to the simulator one final time, and select <strong>Hardware &gt; Home Button</strong> from the Menu Bar to return to the simulator's home screen. We can see it now has an icon, and a non-truncated name, as shown below:<br>
+<img src="Images/image13.png" alt="Images/image13.png">
+</li>
+</ol>
+
+<p>Congratulations! You have now built, and run your very first Xamarin application. We hope this will be the first of many!</p>
+
+<h1>
+<a id="related-links" class="anchor" href="#related-links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Related Links</h1>
+
+<ul>
+<li><a href="https://store.xamarin.com/account/register">Creating a Xamarin Account</a></li>
+<li><a href="http://developer.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial/">Beginning a Trial</a></li>
+<li><a href="http://developer.xamarin.com/guides/cross-platform/getting_started/introducing_xamarin_studio/">Intro to Xamarin Studio</a></li>
+<li><a href="http://developer.xamarin.com/guides/ios/user_interface/designer/">Introduction to the iOS Designer</a></li>
+<li><a href="http://youtu.be/W4H9uLjoEjM">Evolve 2014 - Diving into the Xamarin Designer for iOS</a></li>
+<li><a href="http://youtu.be/ZQWdRQTrHTQ">Evolve 2014 - Become a Xamarin Studio Expert</a></li>
+<li><a href="https://evolve.xamarin.com">Evolve 2014 - All Videos</a></li>
+</ul>
+
+<h1>
+<a id="whats-next" class="anchor" href="#whats-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's next?</h1>
+
+<p>We have looked at some of the basics of Xamarin Studio, but this is only the beginning. The application we have build is only a Single screen application, when developing for iOS in a real world scenario it is likely that your application will have more than one screen. Visit our <a href="http://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/">Hello, iOS Multi-Screen</a> guide for a walkthrough and explanation on how this is done.</p>
+
+<p>iOS is only one of the platforms targeted by Xamarin. Android is another popular platform that can be programmed for using Xamarin. We have Getting Started resources for Android, that will explore creating the same Phoneword application in Xamarin.Android. These can be found in the links below:</p>
+
+<h4>
+<a id="build-your-first-android-application" class="anchor" href="#build-your-first-android-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build your first Android application</h4>
+
+<ul>
+<li><a href="http://developer.xamarin.com/guides/android/getting_started/hello,android/">Hello, Android</a></li>
+<li><a href="http://developer.xamarin.com/guides/android/getting_started/hello,android_multiscreen/">Hello, Android Multi-Screen</a></li>
+<li><a href="http://developer.xamarin.com/guides/android/application_fundamentals/activity_lifecycle/">Android Activity Lifecycle</a></li>
+</ul>
+
+<p>Having an Android and iOS project that do the same thing, in the same language is great. However it is worth nothing that we use the <code>PhoneTranslator.cs</code> class in both projects. This seems like a waste of time and memory, not to mention the complications that could present themselves if we want to optimise or add features in future. This is where the beauty of Cross Platform development comes in.
+Using the likes of a PCL or Shared Project, we can have one <code>core</code> project that contains all our logic, and it is accessible from both platform independant projects. You can read more about building cross platform application in the guides below:</p>
+
+<h4>
+<a id="cross-platform-applications" class="anchor" href="#cross-platform-applications" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cross Platform applications</h4>
+
+<ul>
+<li><a href="http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/">Building Cross Platform Applications</a></li>
+<li><a href="http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/sharing_code_options/#Portable_Class_Libraries">PCL information</a></li>
+<li>
+<a href="http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/sharing_code_options/#Shared_Projects">Shared Projects</a> </li>
+</ul>
+
+<h3>
+<a id="xamarin-forms" class="anchor" href="#xamarin-forms" aria-hidden="true"><span class="octicon octicon-link"></span></a>Xamarin Forms</h3>
+
+<p>Taking the concept above one step further, Xamarin.Forms allows developers to create natively backed, cross platform UIs. The User Interface is coded in C#, but rendered using the natively controls of the platforms.</p>
+
+<p>You can read more about it <a href="http://developer.xamarin.com/guides/cross-platform/xamarin-forms/">here</a>, or view any of the plethora of videos from Evolve 2014 listed below:</p>
+
+<ul>
+<li><a href="http://youtu.be/x3JhCmH5yLo">XAML for Xamarin.Forms</a></li>
+<li><a href="http://youtu.be/79SdhVjBwh0">Xamarin.Forms is even cooler than you think</a></li>
+<li><a href="http://youtu.be/FrcVQGTXZKM">Building Cross-Platform Applications with Xamarin, Xamarin.Forms and MVVM Light</a></li>
+<li><a href="http://youtu.be/xWyOcEpNyXQ">Your First Xamarin.Forms App</a></li>
+<li><a href="http://youtu.be/pIZ8G47KPIM">Extending Xamarin.Forms with Custom Controls</a></li>
+</ul>
+
+<h1>
+<a id="you-mentioned-indie-licenses--whats-the-deal-dude" class="anchor" href="#you-mentioned-indie-licenses--whats-the-deal-dude" aria-hidden="true"><span class="octicon octicon-link"></span></a>You mentioned Indie Licenses – What's the deal dude?!</h1>
+
+<p>This is true, I did! Everone who attended today's meetup will recieve a one month free indie license so that you can hack to your hearts content. You can see what this consists of on the <a href="https://store.xamarin.com/">store page</a>. After a month, you will have the option to use the 30-Day free (business) trial or continue to use indie for $25 per month.</p>
+
+<p>To get your months free trial, you will need to have a Xamarin account, which you can sign up for <a href="https://store.xamarin.com/account/register">here</a>. Make sure you have either:</p>
+
+<ul>
+<li>Given us your Xamarin account address at the Meetup<br>
+<strong>OR</strong>
+</li>
+<li>Email your Xamarin account address to <a href="mailto:Jayme@xamarin.com">Jayme@xamarin.com</a> (and CC <a href="mailto:amy@xamarin.com">amy@xamarin.com</a>). Include the subject 'WCC - Indie License'</li>
+</ul>
+
+<p>Remember students can now use Xamarin for free! For more information on this, vist the <a href="http://xamarin.com/student">student homepage</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Intro to Xamarin maintained by <a href="https://github.com/asb3993">asb3993</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
